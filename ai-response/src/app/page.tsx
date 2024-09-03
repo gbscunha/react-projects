@@ -102,7 +102,8 @@ const AIResponseEvaluator = () => {
   };
 
   return (
-    <Card className="bg-slate-50 w-full max-w-2xl mx-auto">
+    <div className="flex items-center justify-center min-h-screen">
+    <Card className="bg-slate-50 w-full max-w-5xl mx-auto">
       <CardHeader className="flex items-start justify-between">
         <div className="mt-2 flex items-center gap-2">
         <Image
@@ -190,6 +191,7 @@ const AIResponseEvaluator = () => {
         </div>
       </CardContent>
     </Card>
+    </div>
   );
 };
 
