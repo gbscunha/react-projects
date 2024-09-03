@@ -13,6 +13,8 @@ import { Button } from "./_components/ui/button";
 // import { Alert, AlertDescription, AlertTitle } from "./_components/ui/alert";
 
 const AIResponseEvaluator = () => {
+  const [model, setModel] = useState ("");
+  const [prompt, setPrompt] = useState ("");
   const [question, setQuestion] = useState("");
   const [correctResponse, setCorrectResponse] = useState("");
   const [candidateResponse, setCandidateResponse] = useState("");
@@ -91,9 +93,20 @@ const AIResponseEvaluator = () => {
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader>
         <CardTitle>Question Evaluator App</CardTitle>
+        
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
+        <div className="space-y-2">
+            <Label htmlFor="prompt">Prompt</Label>
+            <Textarea
+              id="prompt"
+              placeholder="Mensagem para o ChatGPT"
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              rows={2}
+            />
+          </div>
           <div className="space-y-2">
             <Label htmlFor="question">Question</Label>
             <Textarea

@@ -8,17 +8,15 @@ const configuration = ({
 const openai = new OpenAI(configuration);
 
 export async function POST(request: NextRequest) {
-  const { question, candidateResponse, correctResponse } = await request.json();
+  const { question, candidateResponse, correctResponse, prompt, model } = await request.json();
 
   try {
     const response = await openai.chat.completions.create({
-      model: 'gpt-4-turbo',
+      model: '${model}',
       messages: [
         {
           role: 'system',
-          content: `Here is a question, an answer, and a key. 
-          Evaluate whether the answer aligns with the key and provide a brief justification. 
-          Scores can be 0 for incorrect answers, 0.5 for partially correct answers, and 1.0 for fully correct answers.`,
+          content: `Prompt ${prompt}`,
         },
         {
           role: 'user',
